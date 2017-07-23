@@ -1,7 +1,7 @@
 # Comment Line;;;
 # Lines with Shipname only are Headings for Groups;;;
 # Ship Name;Phone Number;Mail Address;MMSI
- # Ship Name is the Button Text for Marine Traffic Link;;;
+# Ship Name is the Button Text for Marine Traffic Link;;;
 # Phone Numbers have to start with 00, only numbers, spaces and dashes;;;
 # Mail Address is matched with regex from http://emailregex.com/;;;
 # MMSI is Maritime Mobile Service Identity;;;
