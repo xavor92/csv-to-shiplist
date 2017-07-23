@@ -4,10 +4,14 @@
 # Ship Name is the Button Text for Marine Traffic Link;;;
 # Phone Numbers have to start with 00, only numbers, spaces and dashes;;;
 # Mail Address is matched with regex from http://emailregex.com/;;;
-# MMSI is Maritime Mobile Service Identity;;;
+# MMSI is Maritime Mobile Service Identity, digits only;;;
 Group 1;;;
 Ship Name 1;0012 3456 789;valid@mail.de;123456789
 Ship Name 2;00123-456789;another@mail.com;5455540254
 Group 2;;;
 asdfghkjasdf;0049 15112766666;sdfrew@gmx.de;211515550
 asdfasdf;0031 6666661;mtssdfsdfd@gmail.com;244655555
+Invalid Data;;;
+Invalid Phone;+492416;mail@test.de;012678978
+Invalid Mail;0018 54698-45;mail€17@test.de;0123456
+Invalid MMSI;0015 5465456;test@mail.de;00526a4s
