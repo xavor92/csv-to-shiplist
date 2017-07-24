@@ -36,4 +36,53 @@ class validator:
             return True
         return False
         
+class formatter:
+    tableStarted = False
+
+    def group(self, row):
+        output = ""
+
+        if self.tableStarted:
+            # end table
+            output = output + self._tableFooter()
+            self.tableStarted = False
         
+        output = output + "<h2>{}</h2>".format(row[0])
+
+        return output
+        
+
+
+    def ship(self, row):
+        """
+        create ship link, phone link and mail link from ship row
+        """
+        output = ""
+        if not self.tableStarted:
+            output = output + self._tableHeader()
+            self.tableStarted = True
+        
+        shipname, number, mail, mmsi = row
+        marine_traffic_link = "https://www.marinetraffic.com/en/ais/details/ships/mmsi:{}".format(mmsi)
+        ship_button = "[button link=\"{}\" text=\"{}\"]".format(marine_traffic_link, shipname)
+        phone_button = "[tel_res number=\"{}\"]".format(number)
+        mail_button = "[mail_res address=\"{}\"]".format(mail)
+
+        output = output + """<tr>
+<td>{}</td>
+<td>{}</td>
+<td>{}</td>
+</tr>""".format(ship_button, phone_button, mail_button)
+        return output
+
+    def _tableHeader(self):
+        header = """<div class="tg-wrap">
+<table>
+<tbody>"""
+        return header
+
+    def _tableFooter(self):
+        footer = """</tbody>
+</table>
+</div>"""
+        return footer

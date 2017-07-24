@@ -1,6 +1,6 @@
 import sys
 import csv
-from formatting import validator
+import formatting
 
 def isComment(row):
     if row[0].startswith("#"):
@@ -9,19 +9,23 @@ def isComment(row):
 
 def parse(csv_file):
     csv_reader = csv.reader(csv_file, delimiter=';')
-    validate = validator()
+    validate = formatting.validator()
+    formatter = formatting.formatter()
+
+    output = ""
+
     for row in csv_reader:
         if not isComment(row):
             if row[1]:
                 # ship, check data
                 if validate.checkShip(row):
-                    print "Valid Ship:", row
+                    print formatter.ship(row)
                 else:
                     print "In row", csv_reader.line_num, row
 
             else:
                 # group!
-                print "Group: ", row
+                print formatter.group(row)
 
 def main():
     print "csv-to-shiplist.py"
