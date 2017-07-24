@@ -78,6 +78,7 @@ class formatter:
     def _tableHeader(self):
         header = """<div class="tg-wrap">
 <table>
+<col width="200">
 <tbody>"""
         return header
 
