@@ -46,7 +46,8 @@ class formatter:
             self.output = self.output + self._tableFooter()
             self.tableStarted = False
         
-        self.output = self.output + "<h2>{}</h2>".format(row[0])  
+        self.output = self.output + """<h2>{}</h2>
+""".format(row[0])  
 
     def ship(self, row):
         """
@@ -66,7 +67,8 @@ class formatter:
 <td>{}</td>
 <td>{}</td>
 <td>{}</td>
-</tr>""".format(ship_button, phone_button, mail_button)
+</tr>
+""".format(ship_button, phone_button, mail_button)
 
     def end(self):
         if self.tableStarted:
@@ -82,5 +84,6 @@ class formatter:
     def _tableFooter(self):
         footer = """</tbody>
 </table>
-</div>"""
+</div>
+"""
         return footer
