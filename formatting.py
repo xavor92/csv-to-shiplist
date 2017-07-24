@@ -5,7 +5,7 @@ class validator:
     Validate the various inputs
     """
 
-    phone_regex = re.compile("^[\d -]+$")
+    phone_regex = re.compile("^00[\d -]+$")
     mail_regex = re.compile("(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")
     mmsi_regex = re.compile("^\d+$")
 
