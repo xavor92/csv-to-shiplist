@@ -38,28 +38,22 @@ class validator:
         
 class formatter:
     tableStarted = False
+    output = ""
 
     def group(self, row):
-        output = ""
-
         if self.tableStarted:
             # end table
-            output = output + self._tableFooter()
+            self.output = self.output + self._tableFooter()
             self.tableStarted = False
         
-        output = output + "<h2>{}</h2>".format(row[0])
-
-        return output
-        
-
+        self.output = self.output + "<h2>{}</h2>".format(row[0])  
 
     def ship(self, row):
         """
         create ship link, phone link and mail link from ship row
         """
-        output = ""
         if not self.tableStarted:
-            output = output + self._tableHeader()
+            self.output = self.output + self._tableHeader()
             self.tableStarted = True
         
         shipname, number, mail, mmsi = row
@@ -68,12 +62,11 @@ class formatter:
         phone_button = "[tel_res number=\"{}\"]".format(number)
         mail_button = "[mail_res address=\"{}\"]".format(mail)
 
-        output = output + """<tr>
+        self.output = self.output + """<tr>
 <td>{}</td>
 <td>{}</td>
 <td>{}</td>
 </tr>""".format(ship_button, phone_button, mail_button)
-        return output
 
     def _tableHeader(self):
         header = """<div class="tg-wrap">

@@ -14,18 +14,25 @@ def parse(csv_file):
 
     output = ""
 
-    for row in csv_reader:
-        if not isComment(row):
-            if row[1]:
-                # ship, check data
-                if validate.checkShip(row):
-                    print formatter.ship(row)
-                else:
-                    print "In row", csv_reader.line_num, row
+    try:
+        for row in csv_reader:
+            if not isComment(row):
+                if row[1]:
+                    # ship, check data
+                    if validate.checkShip(row):
+                        formatter.ship(row)
+                    else:
+                        print "In row", csv_reader.line_num, row
 
-            else:
-                # group!
-                print formatter.group(row)
+                else:
+                    # group!
+                    formatter.group(row)
+
+        print formatter.output
+    
+    except ValueError as e:
+        print "Error on Line {}: {}".format(csv_reader.line_num, e)
+
 
 def main():
     print "csv-to-shiplist.py"
