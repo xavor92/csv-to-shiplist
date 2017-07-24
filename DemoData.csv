@@ -5,6 +5,7 @@
 # Phone Numbers have to start with 00, only numbers, spaces and dashes;;;
 # Mail Address is matched with regex from http://emailregex.com/;;;
 # MMSI is Maritime Mobile Service Identity, digits only;;;
+;;;
 Group 1;;;
 Ship Name 1;0012 3456 789;valid@mail.de;123456789
 Ship Name 2;00123-456789;another@mail.com;5455540254
