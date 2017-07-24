@@ -68,6 +68,11 @@ class formatter:
 <td>{}</td>
 </tr>""".format(ship_button, phone_button, mail_button)
 
+    def end(self):
+        if self.tableStarted:
+            self.output = self.output + self._tableFooter()
+            self.tableStarted = False
+
     def _tableHeader(self):
         header = """<div class="tg-wrap">
 <table>

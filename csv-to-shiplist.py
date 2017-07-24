@@ -27,6 +27,7 @@ def parse(csv_file):
                 else:
                     # group!
                     formatter.group(row)
+        formatter.end()
 
         print formatter.output
     
